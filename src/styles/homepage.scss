@@ -1,0 +1,100 @@
+@import 'variables';
+.main {
+    width: 100vw;
+    height: 100vh;
+    padding: 10rem 4rem;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5rem;
+    align-items: center;
+    .note {
+        transition: all 1s;
+        animation: flip 1s linear forwards;
+        border-radius: 10px;
+        width: 80%;
+        padding: 1rem 2rem;
+        aspect-ratio: 5 / 7;
+        cursor: pointer;
+        background: linear-gradient(90deg, $lightBlue, transparent) #810c0a;
+        &:hover {
+            transform: scale(1.05);
+            background-color: #5a132b;
+        }
+    }
+    .addNote {
+        background: linear-gradient(90deg, #1b2871, transparent) #35393b;
+        font-size: 3rem;
+        display: flex;
+        padding: 0;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            transition: all 1s;
+            background-color: #e91e63;
+        }
+    }
+    .modal {
+        animation: fadeIn 0.5s cubic-bezier(0.09, 0.19, 1, 0) forwards;
+        position: fixed;
+        width: 50%;
+        left: 25%;
+        background-color: $lightGrey;
+        aspect-ratio: 7 / 5;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        border-radius: 10px;
+        textarea {
+            padding: 1rem;
+            font-size: 1.1rem;
+            background-color: $lightGrey2;
+            color: #fff;
+            resize: vertical;
+            width: 100% !important;
+            height: 100%;
+        }
+        .actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 1rem;
+            div {
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .main {
+        grid-template-columns: 1fr;
+        .note {
+            width: 100%;
+        }
+        .modal {
+            width: 90%;
+            left: 5%;
+            aspect-ratio: 5 / 7;
+        }
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(0, 100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes flip {
+    0% {
+        transform: rotateY(90deg) rotateX(-45deg);
+    }
+    100% {
+        transform: rotateX(0) rotateY(0);
+    }
+}
