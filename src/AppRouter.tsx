@@ -3,10 +3,6 @@ import Navbar from './layout/Navbar';
 import Homepage from './pages/Homepage';
 
 export default function AppRouter() {
-    interface PageRouteInterface {
-        path: string;
-        element: React.ReactElement;
-    }
     return (
         <BrowserRouter>
             <Navbar />
